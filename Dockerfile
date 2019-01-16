@@ -1,10 +1,11 @@
 FROM ubuntu:16.04
 MAINTAINER Patcharapong Prohmwichai <patcharp@live.com>
 
-
-
 # Install apache, PHP, and supplimentary programs. openssh-server, curl, and lynx-cur are for debugging the container.
-RUN apt-get update && apt-get -y upgrade && DEBIAN_FRONTEND=noninteractive apt-get -y install apt-utils \
+RUN apt-get -y install apt-utils
+RUN apt-get update && apt-get -y upgrade
+RUN DEBIAN_FRONTEND=noninteractive
+RUN apt-get -y install \
     apache2 php7.0 php7.0-mysql libapache2-mod-php7.0 curl lynx-cur \
     php7.0-gd php-imagick php7.0-imap php7.0-intl php7.0-mbstring php7.0-mcrypt php-memcached php7.0-sqlite3 \
     php7.0-pspell php7.0-recode php7.0-xml  php7.0-xmlreader  php7.0-xmlrpc  php7.0-xmlwriter php7.0-tidy php7.0-xsl
@@ -28,7 +29,7 @@ ENV APACHE_LOG_DIR /var/log/apache2
 ENV APACHE_LOCK_DIR /var/lock/apache2
 ENV APACHE_PID_FILE /var/run/apache2.pid
 
-# Custom PHP Variable by iRecruit
+# Custom PHP Variable
 # TODO:
 
 # Expose apache.
