@@ -2,7 +2,6 @@ FROM ubuntu:16.04
 MAINTAINER Patcharapong Prohmwichai <patcharp@live.com>
 
 # Install apache, PHP, and supplimentary programs. openssh-server, curl, and lynx-cur are for debugging the container.
-RUN apt-get -y install apt-utils
 RUN apt-get update && apt-get -y upgrade
 RUN DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y install \
